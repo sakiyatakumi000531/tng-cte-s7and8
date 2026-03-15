@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id();
+            // デフォルトで NOT NULL
+            $table->increments('id');
+            $table->integer('product_id');
             $table->timestamps();
         });
     }
