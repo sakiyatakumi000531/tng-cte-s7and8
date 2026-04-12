@@ -14,7 +14,7 @@
             <th>価格</th>
             <th>在庫数</th>
             <th>メーカー名</th>
-            <td><button type = "button"><a href = "{{route('product/add')}}">新規登録</a></button></td> <!-- TODO : ルート情報を追記 -->
+            <td><button type = "button"><a href = "{{route('add')}}">新規登録</a></button></td>
         </tr>
         @foreach($items as $item)
             <tr>
