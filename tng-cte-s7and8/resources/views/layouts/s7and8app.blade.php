@@ -7,7 +7,7 @@
     <meta name="description" content="旧CyTech STEP7 テスト">
     <meta name="author" content="Takumi Sakiya(Tokyo Branch)">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{asset('css/style.css)}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     @yield('css') <!-- ページ個別のCSS -->
 </head>
 
