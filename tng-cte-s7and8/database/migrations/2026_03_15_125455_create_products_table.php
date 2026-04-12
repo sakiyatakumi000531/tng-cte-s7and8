@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             // デフォルトで NOT NULL
-            $table->increments('id');
+            $table->id('id');
             $table->integer('company_id'); // INT
             $table->string('product_name'); // VARCHAR
             $table->integer('price'); // INT

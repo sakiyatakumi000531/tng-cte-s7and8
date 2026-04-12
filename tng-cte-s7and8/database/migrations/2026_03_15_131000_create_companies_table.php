@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             // デフォルトで NOT NULL
-            $table->increments('id');
+            $table->id('id');
             $table->string('company_name');
             $table->string('street_address')->nullable();
             $table->string('representative_name')->nullable();
