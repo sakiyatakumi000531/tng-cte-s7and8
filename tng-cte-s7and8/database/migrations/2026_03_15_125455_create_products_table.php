@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             // デフォルトで NOT NULL
-            $table->increments('id');
-            $table->integer('company_id'); // INT
+            $table->id(); // BIGINT
+            $table->foreignId('company_id')->constrained('companies')->cascadeOnDelete(); // BIGINT
             $table->string('product_name'); // VARCHAR
             $table->integer('price'); // INT
             $table->integer('stock'); // INT
