@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 /**
  * Companyモデル
  *
@@ -11,6 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Company extends Model
 {
+    // トレイト
+    use HasFactory;
+
     /**
      * hasMany結合
      *
