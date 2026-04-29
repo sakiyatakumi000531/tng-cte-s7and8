@@ -2,8 +2,9 @@
 
 @section('title', '商品一覧画面')
 
-<!-- @section('search_box') -->
-<!-- @endsection -->
+@section('search_box')
+<p>検索ボックス</p>
+@endsection
 
 @section('content')
     <table>
@@ -14,7 +15,7 @@
             <th>価格</th>
             <th>在庫数</th>
             <th>メーカー名</th>
-            <td><button type = "button"><a href = "{{route('add')}}">新規登録</a></button></td>
+            <td><a href = "{{route('add')}}">新規登録</a></td>
         </tr>
         @foreach($items as $item)
             <tr>
