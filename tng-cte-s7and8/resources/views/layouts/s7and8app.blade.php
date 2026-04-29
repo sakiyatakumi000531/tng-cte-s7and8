@@ -17,7 +17,6 @@
         @yield('search_box')
     </header>
     <main>@yield('content')</main>
-    @yield('pager')
 </body>
 
 </html>

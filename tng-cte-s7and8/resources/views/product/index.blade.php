@@ -30,6 +30,3 @@
     </table>
     {{ $items->links() }}
 @endsection
-
-<!-- @section('pager') -->
-<!-- @endsection -->
