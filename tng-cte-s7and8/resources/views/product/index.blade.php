@@ -19,12 +19,12 @@
         </tr>
         @foreach($items as $item)
             <tr>
-                <td>{{ $item->id }}</td> <!-- ID -->
+                <td>{{ $item->id }}.</td> <!-- ID -->
                 <td>商品画像</td> <!-- 商品画像 -->
                 <td>{{ $item->product_name }}</td> <!-- 商品名 -->
-                <td>{{ $item->price }}</td> <!-- 価格 -->
+                <td>￥{{ $item->price }}</td> <!-- 価格 -->
                 <td>{{ $item->stock }}</td> <!-- 在庫数 -->
-                <td>{{ $item->company_id }}</td> <!-- メーカー名 -->
+                <td>{{ $item->company->company_name }}</td> <!-- メーカー名 -->
             </tr>
         @endforeach
     </table>
