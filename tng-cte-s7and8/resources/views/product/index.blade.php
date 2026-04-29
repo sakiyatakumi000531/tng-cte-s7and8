@@ -15,19 +15,20 @@
             <th>価格</th>
             <th>在庫数</th>
             <th>メーカー名</th>
-            <td><a href = "{{route('add')}}">新規登録</a></td>
+            <td><a href = "{{ route('add') }}">新規登録</a></td>
         </tr>
         @foreach($items as $item)
             <tr>
-                <td>{{$item -> id}}</td> <!-- ID -->
+                <td>{{ $item->id }}</td> <!-- ID -->
                 <td>商品画像</td> <!-- 商品画像 -->
-                <td>{{$item -> product_name}}</td> <!-- 商品名 -->
-                <td>{{$item -> price}}</td> <!-- 価格 -->
-                <td>{{$item -> stock}}</td> <!-- 在庫数 -->
-                <td>{{$item -> company_id}}</td> <!-- メーカー名 -->
+                <td>{{ $item->product_name }}</td> <!-- 商品名 -->
+                <td>{{ $item->price }}</td> <!-- 価格 -->
+                <td>{{ $item->stock }}</td> <!-- 在庫数 -->
+                <td>{{ $item->company_id }}</td> <!-- メーカー名 -->
             </tr>
         @endforeach
     </table>
+    {{ $items->links() }}
 @endsection
 
 <!-- @section('pager') -->
