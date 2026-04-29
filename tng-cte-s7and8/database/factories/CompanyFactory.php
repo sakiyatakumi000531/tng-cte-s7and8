@@ -18,7 +18,17 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            // 主キーは設定不要
+            // メーカー名(string)
+            'company_name' => $this->faker->company(),
+            // 住所(string)
+            'street_address' => $this->faker->address(),
+            // 代表者名(string)
+            'representative_name' => $this->faker->name(),
+            // 作成日は1年前から現在時刻の間でランダム生成。format()不要と思われるが、念のためformat()しておく
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),
+            // 更新日は現在時刻で固定。format()不要
+            'updated_at' => now(),
         ];
     }
 }
