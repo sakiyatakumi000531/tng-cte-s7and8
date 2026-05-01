@@ -1,4 +1,26 @@
 @charset "UTF-8";
+/* 表 */
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: solid 1px #000000;
+}
+
+th, td {
+    border-bottom: solid 1px #000000;
+    padding: 12px;
+    text-align: left;
+}
+
+/* tbodyの奇数行(odd)の背景色をグレーに */
+tbody tr:nth-child(odd) {
+    background-color: #d9d9d9;
+}
+
+/* ホバー時の背景色をピンクに */
+tbody tr:hover {
+    background-color: #ffc0cb;}
+
 /* ページネーション */
 nav {
     margin: 10px;
