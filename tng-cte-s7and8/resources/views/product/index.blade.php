@@ -8,15 +8,18 @@
 
 @section('content')
     <table>
-        <tr>
-            <th>ID</th>
-            <th>商品画像</th>
-            <th>商品名</th>
-            <th>価格</th>
-            <th>在庫数</th>
-            <th>メーカー名</th>
-            <td><a href = "{{ route('add') }}">新規登録</a></td>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>商品画像</th>
+                <th>商品名</th>
+                <th>価格</th>
+                <th>在庫数</th>
+                <th>メーカー名</th>
+                <td><a href = "{{ route('add') }}">新規登録</a></td>
+            </tr>
+        </thead>
+        <tbody>
         @foreach($items as $item)
             <tr>
                 <td>{{ $item->id }}.</td> <!-- ID -->
@@ -27,6 +30,7 @@
                 <td>{{ $item->company->company_name }}</td> <!-- メーカー名 -->
             </tr>
         @endforeach
+        </tbody>
     </table>
     {{ $items->links() }}
 @endsection
