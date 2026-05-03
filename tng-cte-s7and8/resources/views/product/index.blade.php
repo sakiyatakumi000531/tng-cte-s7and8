@@ -17,6 +17,11 @@
                 </option>
             @endforeach
         </select>
+
+        <!-- 検索ボタン -->
+        <button type = "submit">検索</button>
+        <!-- リセットボタン -->
+        <a href = "{{ route('product.index') }}">リセット</a>
     </form>
 @endsection
 
