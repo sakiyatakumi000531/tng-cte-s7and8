@@ -31,7 +31,7 @@ class ProductFactory extends Factory
             // コメント(text / Nullable)
             'comment' => $this->faker->optional()->realText(100),
             // 商品画像(varchar / Nullable) width: 640, height: 480, 画像のカテゴリー: 'products' の画像URL または Null
-            'img_path' => $this->faker->unique()->optional()->imageUrl(640, 480, 'products'),
+            'img_path' => $this->faker->optional()->imageUrl(640, 480, 'products'),
             // 作成日は1年前から現在時刻の間でランダム生成。format()不要と思われるが、念のためformat()しておく
             'created_at' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d H:i:s'),
             // 更新日は現在時刻で固定。format()不要
