@@ -9,11 +9,11 @@
         <input type = "text" name = "keyword" value = "{{ request('keyword') }}" placeholder = "検索キーワード">
 
         <!-- メーカー名での絞り込み用セレクトボックス -->
-        <select name = "company">
+        <select name = "company_id">
             <option value = "">メーカー名</option>
-            @foreach($items as $item)
+            @foreach($companies as $company)
                 <option value = "{{ $company->id }}" {{ request('company_id') == $company->id ? 'selected' : ''}}>
-                    {{ $company->name }}
+                    {{ $company->company_name }}
                 </option>
             @endforeach
         </select>
