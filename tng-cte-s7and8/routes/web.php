@@ -15,22 +15,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // --- 商品管理機能 ---
 
 // 商品一覧・検索
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 // 商品新規登録(入力)
-Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 
 // 商品新規登録(処理)
-Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
 // 商品情報詳細
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 // 商品情報編集(入力)
-Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 
 // 商品情報編集(処理)
-Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 
 // 削除
-Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
