@@ -39,17 +39,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($items as $item)
+            @foreach($products as $product)
                 <tr>
-                    <td>{{ $item->id }}.</td> <!-- ID -->
+                    <td>{{ $product->id }}.</td> <!-- ID -->
                     <td>商品画像</td> <!-- 商品画像 -->
-                    <td>{{ $item->product_name }}</td> <!-- 商品名 -->
-                    <td>￥{{ $item->price }}</td> <!-- 価格 -->
-                    <td>{{ $item->stock }}</td> <!-- 在庫数 -->
-                    <td>{{ $item->company->company_name }}</td> <!-- メーカー名 -->
-                    <td><a href = "{{ route('products.show', ['id' => $item->id]) }}">詳細</></td> <!-- 詳細ボタン -->
+                    <td>{{ $product->product_name }}</td> <!-- 商品名 -->
+                    <td>￥{{ $product->price }}</td> <!-- 価格 -->
+                    <td>{{ $product->stock }}</td> <!-- 在庫数 -->
+                    <td>{{ $product->company->company_name }}</td> <!-- メーカー名 -->
+                    <td><a href = "{{ route('products.show', ['id' => $product->id]) }}">詳細</></td> <!-- 詳細ボタン -->
                     <td>
-                        <form action = "{{ route('products.destroy', ['id' => $item->id]) }}" method = "POST">
+                        <form action = "{{ route('products.destroy', ['id' => $product->id]) }}" method = "POST">
                             @method('DELETE')
                             @csrf
                             <button type = "submit">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
@@ -59,5 +59,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $items->links() }}
+    {{ $products->links() }}
 @endsection
