@@ -40,12 +40,12 @@ class ProductController extends Controller
 
             // A-3-1. ページネーションを設定して検索(B用にclone()させる必要があったためBより後に実行)
             //      appends($request->all()) または withQueryString() でURLの検索パラメータを維持したままページめくりができるようにする
-            $items = $query->paginate(20)->withQueryString();
+            $products = $query->paginate(20)->withQueryString();
 
 
         // AとBの検索結果を変数に格納しindexページに渡す
         return view('products.index', [
-                'items' => $items,
+                'products' => $products,
                 'companies' => $companies,
         ]);
     }
