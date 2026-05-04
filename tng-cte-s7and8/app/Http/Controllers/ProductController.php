@@ -44,7 +44,7 @@ class ProductController extends Controller
 
 
         // AとBの検索結果を変数に格納しindexページに渡す
-        return view('product.index', [
+        return view('products.index', [
                 'items' => $items,
                 'companies' => $companies,
         ]);
