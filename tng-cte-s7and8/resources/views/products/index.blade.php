@@ -3,7 +3,7 @@
 @section('title', '商品一覧画面')
 
 @section('search_box')
-    <form action = "{{ route('product.index') }}" method = "GET">
+    <form action = "{{ route('products.index') }}" method = "GET">
         @csrf
         <!-- 商品名の部分一致検索用入力フォーム -->
         <input type = "text" name = "keyword" value = "{{ request('keyword') }}" placeholder = "検索キーワード">
@@ -21,7 +21,7 @@
         <!-- 検索ボタン -->
         <button type = "submit">検索</button>
         <!-- リセットボタン -->
-        <a href = "{{ route('product.index') }}">リセット</a>
+        <a href = "{{ route('products.index') }}">リセット</a>
     </form>
 @endsection
 
@@ -35,7 +35,7 @@
                 <th>価格</th>
                 <th>在庫数</th>
                 <th>メーカー名</th>
-                <td colspan = "2"><a href = "{{ route('product.create') }}">新規登録</a></td>
+                <td colspan = "2"><a href = "{{ route('products.create') }}">新規登録</a></td>
             </tr>
         </thead>
         <tbody>
@@ -47,9 +47,9 @@
                     <td>￥{{ $item->price }}</td> <!-- 価格 -->
                     <td>{{ $item->stock }}</td> <!-- 在庫数 -->
                     <td>{{ $item->company->company_name }}</td> <!-- メーカー名 -->
-                    <td><a href = "{{ route('product.show', ['id' => $item->id]) }}">詳細</></td> <!-- 詳細ボタン -->
+                    <td><a href = "{{ route('products.show', ['id' => $item->id]) }}">詳細</></td> <!-- 詳細ボタン -->
                     <td>
-                        <form action = "{{ route('product.destroy', ['id' => $item->id]) }}" method = "POST">
+                        <form action = "{{ route('products.destroy', ['id' => $item->id]) }}" method = "POST">
                             @method('DELETE')
                             @csrf
                             <button type = "submit">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
