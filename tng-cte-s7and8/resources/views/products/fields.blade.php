@@ -13,7 +13,19 @@
 -->
 
 <label>商品名<input type = "text" name = "product_name" value = "{{ old('product_name', $product->product_name ?? '') }}"></label>
-<label>メーカー<input type = "text" name = "company_name" value = "{{ old('company_name', $product->company->company_name ?? '') }}"></label>
+
+<label>メーカー名
+    <select name = "company_id">
+        <option value = "">選択してください</option>
+        @foreach($companies as $company)
+            <!-- value属性以後はselectedを判定するための条件判定 -->
+            <option value = "{{ $company->id }}" {{ old('company_id', $product->company_id ?? '') == $company->id ? 'selected' : ''}}>
+                {{ $company->company_name }}
+            </option>
+        @endforeach
+    </select>
+</label>
+
 <label>価格<input type = "number" name = "price" value = "{{ old('price', $product->price ?? '') }}"></label>
 <label>在庫数<input type = "number" name = "stock" value = "{{ old('stock', $product->stock ?? '') }}"></label>
 <label>コメント<textarea name = "comment">{{ old('comment', $product->comment ?? '') }}</textarea></label>
