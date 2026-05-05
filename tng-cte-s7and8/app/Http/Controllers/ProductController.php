@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // 自分で追記
 use App\Models\Product;
 use App\Models\Company;
+use App\Http\Requests\Product\StoreRequest;
 
 class ProductController extends Controller
 {
@@ -48,5 +49,22 @@ class ProductController extends Controller
                 'products' => $products,
                 'companies' => $companies,
         ]);
+    }
+
+
+    public function create(Request $request) {
+        $companies = Company::all();
+        return view('products.create', compact('companies'));
+        // 上記と下記は同義
+        // return view('products.create', ['companies' => $companies]);
+    }
+
+
+    public function store(StoreRequest $request) {
+        $product = new Product();
+        $form = $request->all();
+        unset($form['_token']);
+        $product->fill($form)->save();
+        return redirect()->route('products.index');
     }
 }
