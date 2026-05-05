@@ -14,6 +14,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Product extends Model
 {
+    protected $fillable = [
+        'product_name',
+        'company_id', // ここを追加するためにオーバーライト
+        'price',
+        'stock',
+        'comment',
+        'img_path',
+    ];
+
     // トレイト
     use HasFactory;
 
