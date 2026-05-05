@@ -35,7 +35,8 @@
                 <th>価格</th>
                 <th>在庫数</th>
                 <th>メーカー名</th>
-                <td colspan = "2"><a href = "{{ route('products.create') }}">新規登録</a></td>
+                <!-- URLのクエリパラメータを引き継いで検索条件を維持したままcreateページに移動 -->
+                <td colspan = "2"><a href = "{{ route('products.create', request()->query()) }}">新規登録</a></td>
             </tr>
         </thead>
         <tbody>
