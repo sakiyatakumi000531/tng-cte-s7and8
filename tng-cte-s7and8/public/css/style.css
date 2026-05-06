@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* 表 */
+/* --- 表 --- */
 table {
     table-layout: fixed;
     border-collapse: collapse;
@@ -19,9 +19,24 @@ tbody tr:nth-child(odd) {
 
 /* ホバー時の背景色をピンクに */
 tbody tr:hover {
-    background-color: #ffc0cb;}
+    background-color: #ffc0cb;
+}
 
-/* ページネーション */
+
+/* --- フォーム --- */
+/* 子要素を垂直に並べる */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 300px;
+    padding: 30px;
+    border: solid 1px #000000;
+}
+
+
+
+/* --- ページネーション --- */
 nav {
     margin: 10px;
 }
@@ -45,4 +60,10 @@ svg {
     width: 25px;
     height: 25px;
     margin-bottom: -7px;
+}
+
+
+/* --- エラー --- */
+.error {
+    color: #ff0000;
 }
