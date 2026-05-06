@@ -82,42 +82,4 @@ class StoreRequest extends FormRequest
             // 'img_path' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // 2MBまで
         ];
     }
-
-
-    /**
-     * 項目名（名詞）の定義
-     * これにより、標準メッセージの「:attribute」部分が日本語に置換される
-     */
-    public function attributes(): array
-    {
-        return [
-            'company_id'   => 'メーカー',
-            'product_name' => '商品名',
-            'price'        => '価格',
-            'stock'        => '在庫数',
-            'comment'      => 'コメント',
-            'img_path'     => '商品画像パス',
-        ];
-    }
-
-    /**
-     * 特定のルールに対するカスタムメッセージ
-     * attributes() だけでは表現しきれない「言い回し」を調整
-     */
-    public function messages(): array
-    {
-        return [
-            // 存在しないIDが送られた場合
-            'company_id.exists' => '選択された:attributeは、マスターに登録されていません。',
-
-            // 価格の最小値エラー
-            'price.min' => ':attributeにマイナスの値は入力できません。',
-
-            // 在庫数の型エラー（数値以外）
-            'stock.integer' => ':attributeは半角数字で入力してください。',
-
-            // 画像パスの長さエラー
-            'img_path.max' => '画像のファイル名が長すぎます（255文字以内）。',
-        ];
-    }
 }
