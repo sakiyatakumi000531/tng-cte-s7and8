@@ -6,7 +6,15 @@
 <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @include('products.fields')
-    <label>商品画像<input type="file" name="img_path" accept="image/*"></label>
+
+    <label for = "img_path">商品画像</label>
+    <input type="file" name="img_path" id ="img_path" accept="image/*">
+
+    @error('img_path')
+    <div class = "error">
+        {{ $message }}
+    </div>
+    @enderror
 
     <!-- 新規登録ボタン -->
     <button type="submit">新規登録</button>
