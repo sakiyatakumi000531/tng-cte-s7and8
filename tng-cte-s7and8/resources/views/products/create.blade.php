@@ -7,14 +7,16 @@
     @csrf
     @include('products.fields')
 
-    <label for = "img_path">商品画像</label>
-    <input type="file" name="img_path" id ="img_path" accept="image/*">
+        <label for = "img_path">商品画像</label>
+        <input type="file" name="img_path" id ="img_path" accept="image/*">
 
-    @error('img_path')
-    <div class = "error">
-        {{ $message }}
-    </div>
-    @enderror
+        @error('img_path')
+        <div class = "error">
+            {{ $message }}
+        </div>
+        @enderror
+
+    </div> <!-- FlexBoxで子要素のレイアウトを変更させるためのdiv -->
 
     <!-- 新規登録ボタン -->
     <button type="submit">新規登録</button>
