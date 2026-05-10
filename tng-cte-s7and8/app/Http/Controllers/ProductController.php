@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Company;
 use App\Http\Requests\Product\StoreRequest;
+use App\Http\Requests\Product\UpdateRequest;
 
 class ProductController extends Controller
 {
@@ -92,5 +93,18 @@ class ProductController extends Controller
             // 次(update())にPOST送信が控えているため、viewの引数でクエリパラメータの配列を変数に入れて渡し、editページのhiddenフィールドに埋め込む必要がある
             'query_params'  => $request->query(),
         ]);
+    }
+
+
+    public function update(UpdateRequest $request, $id) {
+        $product = Product::findOrFail($id);
+
+        // バリデーション済みの「DB保存用データ」のみで更新
+        $product->update($request->validated());
+
+        // 検索条件などは $request->all()や$request->input()から取得する。なければ空配列
+        $params = $request->input('back_params', []);
+
+        return redirect()->route('products.index', $params);
     }
 }
