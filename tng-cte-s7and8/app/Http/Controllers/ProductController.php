@@ -73,7 +73,7 @@ class ProductController extends Controller
         // web.phpで 「/products/{id}」 のように定義した場合、{id} の部分は自動的にコントローラメソッドの引数に割り当てられる
         // 指定されたIDで商品を検索。なれけば404ページを表示
         // Productモデルにcompany()というリレーションを用意し、with('company')を付けることで、companyの情報も1回のクエリで取得できる(Eger Loading)
-        $product = Product::findOrFail($id);
+        $product = Product::with('company')->findOrFail($id);
 
         return view('products.show', compact('product'));
     }
@@ -83,10 +83,14 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
+        // セレクトボックス用に全メーカーを取得
+        $companies = Company::all();
+
         return view('products.edit', [
-            'product' => $product,
+            'product'       => $product,
+            'companies'     => $companies,
             // 次(update())にPOST送信が控えているため、viewの引数でクエリパラメータの配列を変数に入れて渡し、editページのhiddenフィールドに埋め込む必要がある
-            'query_params' => $request->query(),
+            'query_params'  => $request->query(),
         ]);
     }
 }
