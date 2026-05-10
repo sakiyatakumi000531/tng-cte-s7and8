@@ -77,4 +77,16 @@ class ProductController extends Controller
 
         return view('products.show', compact('product'));
     }
+
+
+    public function edit(Request $request, $id) {
+
+        $product = Product::findOrFail($id);
+
+        return view('products.edit', [
+            'product' => $product,
+            // 次(update())にPOST送信が控えているため、viewの引数でクエリパラメータの配列を変数に入れて渡し、editページのhiddenフィールドに埋め込む必要がある
+            'query_params' => $request->query(),
+        ]);
+    }
 }
