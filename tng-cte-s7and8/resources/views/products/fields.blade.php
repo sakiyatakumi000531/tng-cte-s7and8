@@ -12,6 +12,7 @@
     これにより、1つのファイルで「登録(直前の入力なし)」と「編集(controllerから渡される値あり)」の両方に対応できる
 -->
 
+@csrf
 <div class = "form-container"> <!-- FlexBoxで子要素のレイアウトを変更させるためのdiv -->
 
     <!-- 商品名 -->
@@ -75,3 +76,16 @@
             {{ $message }}
         </div>
     @enderror
+
+
+    <!-- 商品画像 -->
+    <label for = "img_path">商品画像</label>
+    <input type="file" name="img_path" id ="img_path" accept="image/*">
+
+    @error('img_path')
+    <div class = "error">
+        {{ $message }}
+    </div>
+    @enderror
+
+</div>
