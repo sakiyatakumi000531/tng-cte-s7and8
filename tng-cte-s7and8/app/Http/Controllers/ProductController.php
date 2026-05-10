@@ -107,4 +107,12 @@ class ProductController extends Controller
 
         return redirect()->route('products.index', $params);
     }
+
+
+    public function destroy(Request $request, $id) {
+        Product::findOrFail($id)->delete();
+
+        // 前の検索条件を維持したindexページにリダイレクト
+        return redirect()->route('products.index', $request->query());
+    }
 }
