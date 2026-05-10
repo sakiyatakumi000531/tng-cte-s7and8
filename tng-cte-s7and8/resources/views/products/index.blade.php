@@ -48,14 +48,20 @@
                     <td>￥{{ $product->price }}</td> <!-- 価格 -->
                     <td>{{ $product->stock }}</td> <!-- 在庫数 -->
                     <td>{{ $product->company->company_name }}</td> <!-- メーカー名 -->
-                    <td><a href = "{{ route('products.show', ['id' => $product->id]) }}">詳細</></td> <!-- 詳細ボタン -->
                     <td>
-                        <form action = "{{ route('products.destroy', ['id' => $product->id]) }}" method = "POST">
+                        <!-- 詳細ボタン -->
+                        <!-- URLのクエリパラメータを引き継いで検索条件を維持 -->
+                        <!-- 結合演算子で配列同士を結合 -->
+                        <a href = "{{ route('products.show', ['id' => $product->id] + request()->query()) }}">詳細</a>
+                    </td>
+                    <td>
+                        <!-- 削除ボタン -->
+                        <form action = "{{ route('products.destroy', ['id' => $product->id] + request()->query()) }}" method = "POST">
                             @method('DELETE')
                             @csrf
                             <button type = "submit">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
                         </form>
-                    </td> <!-- 削除ボタン -->
+                    </td>
                 </tr>
             @endforeach
         </tbody>
