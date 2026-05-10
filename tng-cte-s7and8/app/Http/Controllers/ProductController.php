@@ -67,4 +67,14 @@ class ProductController extends Controller
         $product->fill($form)->save();
         return redirect()->route('products.index');
     }
+
+
+    public function show($id) {
+        // web.phpで 「/products/{id}」 のように定義した場合、{id} の部分は自動的にコントローラメソッドの引数に割り当てられる
+        // 指定されたIDで商品を検索。なれけば404ページを表示
+        // Productモデルにcompany()というリレーションを用意し、with('company')を付けることで、companyの情報も1回のクエリで取得できる(Eger Loading)
+        $product = Product::findOrFail($id);
+
+        return view('products.show', compact('product'));
+    }
 }
