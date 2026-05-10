@@ -3,12 +3,12 @@
 @section('title', '商品新規登録画面')
 
 @section('content')
-<form action="{{ route('products.update') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
 
-    {{-- 現在のURLパラメータをすべて隠しデータで送る --}}
-    @foreach(request()->query() as $key => $value)
-        <input type = "hidden" name = "back_params[{{ key }}]" value = "{{ value }}">
+    {{-- 隠しフィールドで、バケツリレーしてきたURLを送信 --}}
+    @foreach($query_params as $key => $value)
+        <input type = "hidden" name = "back_params[{{ $key }}]" value = "{{ $value }}">
     @endforeach
 
     @include('products.fields')
