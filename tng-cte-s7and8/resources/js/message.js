@@ -1,0 +1,1 @@
+export const CONFIRM_DELETE_MESSAGE = 'この製品を削除してもよろしいですか？';
