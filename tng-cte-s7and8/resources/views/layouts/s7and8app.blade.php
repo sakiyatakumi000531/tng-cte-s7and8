@@ -8,7 +8,8 @@
     <meta name="author" content="Takumi Sakiya(Tokyo Branch)">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    @yield('css') <!-- ページ個別のCSS -->
+    @yield('js') {{-- ページ固有のJS --}}
+    @yield('css') {{-- ページ固有のCSS --}}
 </head>
 
 <body>

@@ -1,5 +1,9 @@
 @extends('layouts.s7and8app')
 
+@section('js')
+    <script type = "module" src = "js/delete-confirm.js"></script>
+@endsection
+
 @section('title', '商品一覧画面')
 
 @section('search_box')
@@ -59,7 +63,7 @@
                         <form action = "{{ route('products.destroy', ['id' => $product->id] + request()->query()) }}" method = "POST">
                             @method('DELETE')
                             @csrf
-                            <button type = "submit">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
+                            <button type = "submit" class = "btn-delete">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
                         </form>
                     </td>
                 </tr>
