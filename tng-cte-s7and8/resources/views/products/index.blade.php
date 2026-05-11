@@ -1,7 +1,9 @@
 @extends('layouts.s7and8app')
 
 @section('js')
-    <script type = "module" src = "js/delete-confirm.js"></script>
+    {{-- resource/js/から書くのがルール --}}
+    {{-- @viteはES Modules有効 --}}
+    @vite(['resources/js/delete-confirm.js'])
 @endsection
 
 @section('title', '商品一覧画面')
