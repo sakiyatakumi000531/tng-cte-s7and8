@@ -25,9 +25,9 @@
         </select>
 
         <!-- 検索ボタン -->
-        <button type = "submit">検索</button>
+        <button type = "submit" class = "btn btn-green">検索</button>
         <!-- リセットボタン -->
-        <a href = "{{ route('products.index') }}">リセット</a>
+        <a href = "{{ route('products.index') }}" class = "btn btn-purple">リセット</a>
     </form>
 @endsection
 
@@ -42,7 +42,7 @@
                 <th>在庫数</th>
                 <th>メーカー名</th>
                 <!-- URLのクエリパラメータを引き継いで検索条件を維持したままcreateページに移動 -->
-                <td colspan = "2"><a href = "{{ route('products.create', request()->query()) }}">新規登録</a></td>
+                <td colspan = "2"><a href = "{{ route('products.create', request()->query()) }}" class = "btn btn-orange">新規登録</a></td>
             </tr>
         </thead>
         <tbody>
@@ -58,14 +58,14 @@
                         <!-- 詳細ボタン -->
                         <!-- URLのクエリパラメータを引き継いで検索条件を維持 -->
                         <!-- 結合演算子で配列同士を結合 -->
-                        <a href = "{{ route('products.show', ['id' => $product->id] + request()->query()) }}">詳細</a>
+                        <a href = "{{ route('products.show', ['id' => $product->id] + request()->query()) }}" class = "btn btn-blue">詳細</a>
                     </td>
                     <td>
                         <!-- 削除ボタン -->
                         <form action = "{{ route('products.destroy', ['id' => $product->id] + request()->query()) }}" method = "POST">
                             @method('DELETE')
                             @csrf
-                            <button type = "submit" class = "btn-delete">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
+                            <button type = "submit" class = "btn btn-red btn-delete">削除</button> <!-- TODO: class属性を付与し、確認ダイアログを表示させる -->
                         </form>
                     </td>
                 </tr>

@@ -14,10 +14,10 @@
     @include('products.fields')
 
     <!-- 更新ボタン -->
-    <button type = "submit">更新</button>
+    <button type = "submit" class = "btn btn-orange">更新</button>
 
     <!-- 戻るボタン -->
     <!-- URLのクエリパラメータを引き継いで検索条件を維持 -->
-    <a href="{{ route('products.index', request()->query()) }}">戻る</a>
+    <a href="{{ route('products.index', request()->query()) }}" class = "btn btn-blue">戻る</a>
 </form>
 @endsection
