@@ -4,15 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 
+// トップページ: ログイン状態によって行き先を切り替える(Auth::check())
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return redirect()->route('products.index');
+    }
+    return redirect('/login');
 });
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// --- 商品管理機能(ログイン必須) ---
+// 商品管理機能: 未ログインなら強制的にログインへリダイレクト(Middleware)
 Route::middleware(['auth'])->group(function () {
     // 商品一覧・検索
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
