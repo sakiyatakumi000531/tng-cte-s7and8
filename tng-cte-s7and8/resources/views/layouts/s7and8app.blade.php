@@ -7,9 +7,20 @@
     <meta name="description" content="旧CyTech STEP7 テスト">
     <meta name="author" content="Takumi Sakiya(Tokyo Branch)">
     <title>@yield('title')</title>
+
+    {{-- Google Fonts --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+
+    {{-- 全ページ共通のCSS --}}
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    @yield('js') {{-- ページ固有のJS --}}
-    @yield('css') {{-- ページ固有のCSS --}}
+
+    {{-- ページ固有のCSS --}}
+    @yield('css')
+
+    {{-- ページ固有のJS --}}
+    @yield('js')
 </head>
 
 <body>
