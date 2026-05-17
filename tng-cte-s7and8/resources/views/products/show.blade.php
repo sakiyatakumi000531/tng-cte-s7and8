@@ -38,8 +38,8 @@
 
     <!-- 編集ボタン -->
     <!-- URLのクエリパラメータを引き継いで検索条件を維持 -->
-    <!-- 結合演算子で配列同士を結合 -->
-    <a href="{{ route('products.edit', ['id' => $product->id] + request()->query()) }}" class = "btn btn-orange">編集</a>
+    <!-- array_merge()で配列同士を結合 -->
+    <a href="{{ route('products.edit', array_merge(['id' => $product->id], request()->query())) }}" class = "btn btn-orange">編集</a>
 
     <!-- 戻るボタン -->
     <a href="{{ route('products.index', request()->query()) }}" class = "btn btn-blue">戻る</a>
