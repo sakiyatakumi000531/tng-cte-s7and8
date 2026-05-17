@@ -1,6 +1,33 @@
 @charset "UTF-8";
+/* すべての要素（擬似要素含む）を border-box に統一する */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 26px;
+}
+
+body {
+    font-family: "M PLUS 1", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1600px; /* デスクトップ表示での最大の幅 */
+    width: 100%; /* 画面が1200pxより小さくなったら画面幅に合わせる */
+    margin: 0 auto; /* 左右中央寄せ */
+    padding: 0 20px; /* スマホ時に左右に少し余白を残す */
+}
+
 /* --- 表 --- */
 table {
+    width: 100%; /* <table>はデフォルトでdisplay: table;で「中身ぴったりに縮む」性質があるので、指定しないと「中の文字が収まるだけの最小限の幅」になってしまう */
     table-layout: fixed; /* 縦列の幅を揃えてすぐに表示を開始する */
     border-collapse: collapse; /* 隣り合う枠線を1本にまとめる */
     border: solid 1px #000000;
@@ -33,11 +60,84 @@ th, td {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 300px;
     padding: 30px;
     border: solid 1px #000000;
 }
 
+input,
+select,
+textarea,
+button {
+    font-family: inherit; /* 親のフォントファミリを強制的に引き継ぐ */
+    font-size: inherit; /* 親のフォントサイズを強制的に引き継ぐ */
+}
+
+input,
+select {
+    padding: 20px;
+}
+
+
+/* ボタン */
+.btn {
+    /* インラインブロックにする */
+    display: inline-block;
+
+    /* サイズ */
+    padding: 12px 24px;
+
+    /* 枠線と角丸 */
+    border: none;
+    border-radius: 4px;
+
+    /* リンクの下線を消す */
+    text-decoration: none;
+
+    /* 水平方向の揃え */
+    text-align: center;
+
+    /* 文字色 */
+    color: #000000;
+
+    /* 下側に濃い目の影を付けて立体感を出す */
+    box-shadow: 0 5px 0 #d3d3d3;
+    transition: all 0.1s ease;
+}
+
+.btn:hover {
+    /* カーソルを指マークに */
+    cursor: pointer;
+
+    /* ホバー時に下にずらし、影を濃くして「押された感」を出す */
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #d3d3d3;
+}
+
+.btn-green {
+    background-color: #adff2f;
+}
+
+.btn-purple {
+    background-color: #ba55d3;
+    color: #ffffff;
+}
+
+.btn-orange {
+    background-color: #fd8901;
+}
+
+.btn-blue {
+    background-color: #0cc6fe;
+}
+
+.btn-red {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.btn-gray {
+    background-color: #d3d3d3;
+}
 
 
 /* --- ページネーション --- */
@@ -47,22 +147,22 @@ nav {
 
 nav span {
     margin: 5px;
-    font-size: 12pt;
+    font-size: 1.6rem;
 }
 
 nav a {
     margin: 5px;
-    font-size: 12pt;
+    font-size: 1.6rem;
 }
 
 nav div {
     margin: 0px;
-    font-size: 12pt;
+    font-size: 1.6rem;
 }
 
 svg {
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     margin-bottom: -7px;
 }
 
