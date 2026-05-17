@@ -13,21 +13,23 @@
 </head>
 
 <body>
-    <header>
-        <h1>@yield('title')</h1>
-        @yield('search_box')
-    </header>
+    <div class = "container">
+        <header>
+            <h1>@yield('title')</h1>
+        </header>
 
-    <main>
-        @yield('content')
-    </main>
+        <main>
+            @yield('search_box')
+            @yield('content')
+        </main>
 
-    <footer>
-        <form action = "{{ route('logout') }}" method = "POST">
-            @csrf
-            <button type = "submit">ログアウト</button>
-        </form>
-    </footer>
+        <footer>
+            <form action = "{{ route('logout') }}" method = "POST">
+                @csrf
+                <button type = "submit">ログアウト</button>
+            </form>
+        </footer>
+    </div>
 </body>
 
 </html>
