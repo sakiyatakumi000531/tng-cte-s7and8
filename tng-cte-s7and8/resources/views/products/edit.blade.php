@@ -2,8 +2,12 @@
 
 @section('title', '商品情報編集画面')
 
+@section('js')
+    @vite(['resources/js/edit-confirm.js'])
+@endsection
+
 @section('content')
-<form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('products.update', $product->id) }}" id = "edit-form" method="POST" enctype="multipart/form-data">
     @method('PUT')
 
     {{-- 隠しフィールドで、バケツリレーしてきたURLを送信 --}}
