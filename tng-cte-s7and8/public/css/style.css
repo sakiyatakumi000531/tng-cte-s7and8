@@ -1,24 +1,28 @@
 @charset "UTF-8";
 /* --- 表 --- */
 table {
-    table-layout: fixed;
-    border-collapse: collapse;
+    table-layout: fixed; /* 縦列の幅を揃えてすぐに表示を開始する */
+    border-collapse: collapse; /* 隣り合う枠線を1本にまとめる */
     border: solid 1px #000000;
 }
 
 th, td {
-    border-bottom: solid 1px #000000;
     padding: 12px;
     text-align: left;
 }
 
+.table-striped th,
+.table-striped td {
+    border-bottom: solid 1px #000000;
+}
+
 /* tbodyの奇数行(odd)の背景色をグレーに */
-tbody tr:nth-child(odd) {
+.table-striped tbody tr:nth-child(odd) {
     background-color: #d9d9d9;
 }
 
 /* ホバー時の背景色をピンクに */
-tbody tr:hover {
+.table-striped tbody tr:hover {
     background-color: #ffc0cb;
 }
 
