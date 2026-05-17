@@ -3,7 +3,7 @@
 @section('title', '商品情報詳細画面')
 
 @section('content')
-    <table class = "table-striped">
+    <table class = "table-basic">
         <tbody>
             <tr>
                 <th>ID</th>
