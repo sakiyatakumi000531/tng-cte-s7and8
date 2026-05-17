@@ -1,9 +1,13 @@
 @extends('layouts.s7and8app')
 
+@section('js')
+    @vite(['resources/js/create-confirm.js'])
+@endsection
+
 @section('title', '商品新規登録画面')
 
 @section('content')
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+<form action = "{{ route('products.store') }}" id = "create-form" method = "POST" enctype = "multipart/form-data">
     @include('products.fields')
 
     <!-- 新規登録ボタン -->
