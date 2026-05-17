@@ -32,7 +32,7 @@
 @endsection
 
 @section('content')
-    <table>
+    <table class = "table-basic">
         <thead>
             <tr>
                 <th>ID</th>
