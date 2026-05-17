@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/js/create-confirm.js',
+                'resources/js/edit-confirm.js',
                 'resources/js/delete-confirm.js',
             ],
             refresh: true,
