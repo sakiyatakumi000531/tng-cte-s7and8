@@ -1,3 +1,4 @@
+# プロジェクト作成時に自動作成
 *.log
 .DS_Store
 .env
@@ -22,3 +23,6 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# 以下自分で追記
+.vite
