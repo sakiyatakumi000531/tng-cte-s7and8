@@ -1,59 +1,130 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 旧 CyTech Engineer Step7 「商品管理システム」
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🚀概要
+本システムは自動販売機の売り上げ管理、商品管理を目的としたウェブアプリケーションです。
+主な機能は以下の通りです。
+* 認証機能(新規登録, ログイン)
+* 商品の一覧表示機能(検索機能含む)
+* 商品の詳細情報閲覧機能
+* 商品情報の登録機能
+* 商品情報の編集機能
+* 商品情報の削除機能
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ▶️動作イメージ
+![デモ](docs/images/demo.gif)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨こだわり機能・技術
+#### 全画面共通
+* 未ログインの状態でプロジェクトにアクセスした場合、「ログイン」画面へリダイレクト
+* テンプレート(ベースレイアウト)の継承
+* **ページ遷移時に「商品情報一覧」画面で入力した検索条件を維持**
+* ボタンをホバーした際に押し込んだようなアニメーションを実装
+* 「ログアウト」ボタンの追加
 
-## Learning Laravel
+#### 商品情報一覧画面
+* 「(検索条件)リセット」ボタンの追加
+* 「削除」ボタン押下時に確認ダイアログを表示
+* **「メーカー名」セレクトボックスで表示するリストを、現在の検索条件にヒットするメーカーのみに限定**
+* ホバー中の商品の色を変更
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+#### 商品新規登録画面
+* サブビューのインクルード
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### 商品情報編集画面
+* サブビューのインクルード
 
-## Laravel Sponsors
+#### バリデーション
+* **Form Request の利用**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### データベース
+* **Factory->$faker によるテストデータの生成**
+* **DatabaseSeeder によるデータの一括投入**
+* **リレーション(一対一, 一対多)の厳守(必ず紐づいています!!!!!)**
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 📦使用技術
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Composer](https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🛠️開発環境
+| 名称 | バージョン |
+| :--- | :--- |
+| Microsoft Windows | 10.0.26200.8457 |
+| Windows Terminal | 1.24.11321.0 |
+| Git | 2.52.0.windows.1 |
+| PHP | 8.2.12 |
+| Laravel Framework | 12.54.1 |
+| mariaDB | 10.4.32 |
+| Node.js | 24.14.0 |
+| Visual Studio Code | 1.121.0 |
+| Gemini | - |
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ 設定 (Configuration)
+#### 環境変数
+.envに必要な設定値(.env.exampleに設定済み)
+| 環境変数 | 説明 | 値 |
+| :--- | :--- | :--- |
+| `API_KEY` | 静的トークン | `php artisan key:generate`で生成してください |
+| `APP_LOCALE` | システム言語 | ja |
+| `APP_FAKER_LOCALE` | Fakerが生成するデータの言語 | ja_JP |
+| `DB_CONNECTION` | 使用するデータベースの種類 | mariadb |
+| `DB_HOST` | データベースサーバの場所 | 127.0.0.1 |
+| `DB_PORT` | データベースのポート番号 | 3306 |
+| `DB_DATABASE` | データベースの名前 | tng_cte_s7and8 |
+| `DB_USERNAME` | データベースにログインする際のユーザ名 | root |
+| `DB_PASSWORD` | データベースにログインする際のパスワード | セキュリティ上ここでの記載は避けます |
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 初期ユーザ
+シーダーを実行すると自動で作成されます。もちろん、ご自由に新規登録いただいて構いません。
 
-## License
+| ユーザ名 | メールアドレス | 説明 |
+| :--- | :--- | :--- |
+| user | user@example.com | 開発用に作成したもの |
+| Test User | test@example.com | Laravelのデフォルト |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 📖使い方
+1. プロジェクトを配置したいディレクトリへ移動
+1. リポジトリのクローン
+    * git clone git@github.com:sakiyatakumi000531/tng-cte-s7and8.git
+1. プロジェクトのフォルダへ移動
+    * cd ./tng-cte-s7and8/
+1. 外部パッケージのインストール
+    * composer install
+1. 外部パッケージのインストール
+    * npm install
+1. .envの作成(OSによってコピーのコマンドが異なるので、いずれかを実行)
+    * copy .env.example .env(Win)
+    * cp .env.example .env(Mac, Linux)
+1. APP_KEYの自動生成
+    * php artisan key:generate
+1. Laravel内部のキャッシュのクリア(念のため。不要説濃厚)
+    * php artisan config:clear
+1. マイグレーション & シーダー の実行(データベース & テストデータの生成)
+    * php artisan migrate --seed
+1. TypeScript、Sass、Vue.js、React などのファイルのオンデマンド・コンパイル(「ブラウザで開いている画面」に必要なファイルだけをその場で翻訳)
+    * npm run dev
+1. Laravelの開発用サーバの起動
+    * php artisan serve
+1. ブラウザで http://127.0.0.1:8000/ にアクセス
+
+
+## ⚠️注意点
+* 新規登録時と編集時にファイルを選択させていますが、配布された設計書のDB定義シートのProductsテーブルの"img_path"のデータ型が"varchar"だったので、実際には登録できない仕様になっています。
+
+
+## 👤作者(Author)
+初心者エンジニア
