@@ -21,6 +21,16 @@ class RegisterController extends Controller
     |
     */
 
+    /*
+    |--------------------------------------------------------------------------
+    | 処理の流れ
+    |--------------------------------------------------------------------------
+    | 1. validator() または register() でバリデーションチェック
+    | 2. エラーがなければ create() でユーザーを保存
+    | 3. Auth::login($user) で自動ログイン
+    | 4. $redirectTo で設定しているURLへリダイレクト
+    */
+
     use RegistersUsers;
 
     /**
@@ -28,7 +38,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/products';
 
     /**
      * Create a new controller instance.
