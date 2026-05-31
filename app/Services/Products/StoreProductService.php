@@ -5,10 +5,11 @@ namespace App\Services\Products;
 use App\Models\Product;
 use App\Http\Requests\Product\StoreRequest;
 
-class CreateProductService
+class StoreProductService
 {
     public function __invoke(StoreRequest $request): Product {
         $product = new Product();
+
         $form = $request->all();
 
         // _tokenなど、fillableに含まれない余計なパラメータを除外
