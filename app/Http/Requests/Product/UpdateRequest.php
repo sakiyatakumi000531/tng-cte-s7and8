@@ -40,7 +40,7 @@ class UpdateRequest extends FormRequest
     {
         if (is_null($value)) return null;
 
-        // 全角英数字を半角に変換 ('a' は英字, 'n' は数字)
+        // 全角英数字を半角に変換 ('a' は英字, 's' は数字)
         $value = mb_convert_kana($value, 'as');
 
         // 前後の全角・半角スペースを取り除く
