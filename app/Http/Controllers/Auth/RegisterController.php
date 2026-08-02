@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -45,32 +47,47 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('guest');
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @return \Illuminate\Contracts\Validation\Validator
+     * 💡 引数を「Request」から「RegisterRequest」に変更してメソッドをオーバーライド
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+    public function register(RegisterRequest $request) {
+        // ここに到達した時点で、バリデーションは自動的に通過している（失敗時は自動リダイレクト）
+
+        // ユーザーの作成
+        $user = $this->create($request->validated());
+
+        // 登録イベントの発火
+        event(new Registered($user));
+
+        // 自動ログイン
+        $this->guard()->login($user);
+
+        // リダイレクト処理
+        return $request->wantsJson()
+                    ? response()->json([], 201)
+                    : redirect($this->redirectPath());
     }
 
+    /*
+    register()をオーバーライドし、Form Request バリデーションする方法を採用するので使わない
+
+        protected function validator(array $data) {
+            return Validator::make($data, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        }
+    */
+
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @return User
+     * ユーザー保存ロジック（$dataにはバリデーション済みのデータが入る）
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data) {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
