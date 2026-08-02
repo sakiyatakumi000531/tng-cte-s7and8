@@ -67,14 +67,13 @@ class RegisterRequest extends FormRequest
             // 必須 / 半角記号を除外(半角英数, 全角はOK) / 255文字まで
             'name' => [
                 'required',
-                'regex:/^[a-zA-Z0-9|[^\x01-\x7E]]+$/u',
+                'regex:/^[a-zA-Z0-9\x{80}-\x{FFFF}]+$/u',
                 'max:255'
             ],
 
             // 必須 / 半角英数のみ(全角, 記号はNG) / メールアドレス形式 / 255文字以内 / 重複禁止
             'email' => [
                 'required',
-                'alpha_num',
                 'email',
                 'max:255',
                 'unique:users' // usersテーブル内で重複していないこと
