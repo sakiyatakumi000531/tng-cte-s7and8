@@ -71,15 +71,11 @@ class StoreRequest extends FormRequest
             // 必須 / 整数 / 0以上 / int(11)の最大値以内
             'stock'        => ['required', 'integer', 'min:0', 'max:2147483647'],
 
-            // 任意(Nullable) / 文字列 / text型なので大きめの制限（例: 2000文字）
+            // 任意(Nullable) / 文字列 / text型なので大きめの制限（例: 2,000文字）
             'comment'      => ['nullable', 'string', 'max:2000'],
 
-            // 任意(Nullable) / 文字列(パス) / 255文字以内
-            'img_path'     => ['nullable', 'string', 'max:255'],
-            // ※ファイルアップロードとして扱う場合は 'image' ルールなどを使用
-            // 「Step7スプレッドシート」の「DB定義」シートで varchar(255) が指定されているので文字列として設定しているが、フォームから画像をアップロードする場合は、以下のように記述するのが一般的
-            // // 画像ファイルそのものをバリデーションする場合の例
-            // 'img_path' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // 2MBまで
+            // 任意(Nullable) / 画像ファイル / MIMEタイプを制限 / ファイルサイズを指定したKB以下に制限(2,048KB = 2MB)
+            'img_path'     => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ];
     }
 }
