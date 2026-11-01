@@ -40,7 +40,7 @@ class UpdateRequest extends FormRequest
     {
         if (is_null($value)) return null;
 
-        // 全角英数字を半角に変換 ('a' は英字, 's' は数字)
+        // 半角に変換 (a (=== r + n): 全角英数字 -> 半角英数字, s: 全角スペース -> 半角スペース)
         $value = mb_convert_kana($value, 'as');
 
         // 前後の全角・半角スペースを取り除く
@@ -71,7 +71,7 @@ class UpdateRequest extends FormRequest
             // 必須 / 整数 / 0以上 / int(11)の最大値以内
             'stock'        => ['required', 'integer', 'min:0', 'max:2147483647'],
 
-            // 任意(Nullable) / 文字列 / text型なので大きめの制限（例: 2000文字）
+            // 任意(Nullable) / 文字列 / text型なので大きめの制限（例: 2,000文字）
             'comment'      => ['nullable', 'string', 'max:2000'],
 
             // 任意(Nullable) / 文字列(パス) / 255文字以内
