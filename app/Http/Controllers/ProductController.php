@@ -46,8 +46,8 @@ class ProductController extends Controller
      * 商品新規登録(処理)
      */
     public function store(StoreRequest $request, StoreProductService $service) {
-        // FormRequestオブジェクトをそのまま渡す
-        $service($request);
+        // FormRequest でバリデーション済みの「配列」(FormRequest そのものではない)をサービスに渡す
+        $service($request->validated());
 
         return redirect()->route('products.index');
     }
@@ -87,8 +87,8 @@ class ProductController extends Controller
      * 商品情報編集(処理)
      */
     public function update(UpdateRequest $request, $id, UpdateProductService $service) {
-        // $id と $request をそのまま Service に渡す
-        $service($id, $request);
+        // $id と FormRequest でバリデーション済みの「配列」(FormRequest そのものではない)をサービスに渡す
+        $service($id, $request->validated());
 
         // 検索条件を引き継いでリダイレクト
         // 検索条件の取得には$request->all()または$request->input()を使う。なければ空配列
