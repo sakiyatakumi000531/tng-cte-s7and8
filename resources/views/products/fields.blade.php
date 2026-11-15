@@ -79,8 +79,8 @@
 
 
     <!-- 商品画像 -->
-    <label for = "img_path">商品画像</label>
-    <input type="file" name="img_path" id ="img_path" accept="image/*">
+    <label for = "image">商品画像</label>
+    <input type="file" name="image" id ="image" accept="image/*">
 
     @error('img_path')
     <div class = "error">
