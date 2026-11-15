@@ -7,20 +7,11 @@ use App\Http\Requests\Product\StoreRequest;
 
 class StoreProductService
 {
-    public function __invoke(StoreRequest $request): Product {
-        $product = new Product();
-
-        $form = $request->all();
-
-        // _tokenなど、fillableに含まれない余計なパラメータを除外
-        unset($form['_token']);
-
-        // fill()で属性($fillableに含まれているもののみ)を一括変更(この時点ではまだDBに保存されない)
-        $product->fill($form);
-
-        // SQL(CREATE)を走らせる
-        $product->save();
-
-        return $product;
+    /**
+     * バリデーション済みの配列を受け取って商品を新規登録する
+     */
+    public function __invoke(array $data): Product {
+        // データの作成とDBへの保存を同時に行い、インスタンスを返す
+        return Product::create($data);
     }
 }
