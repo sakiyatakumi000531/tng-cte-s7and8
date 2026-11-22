@@ -79,10 +79,10 @@
 
 
     <!-- 商品画像 -->
-    <label for = "image">商品画像</label>
-    <input type="file" name="image" id ="image" accept="image/*">
+    <label for = "img">商品画像</label>
+    <input type = "file" name = "img" id = "img" accept = "image/*">
 
-    @error('img_path')
+    @error('img')
     <div class = "error">
         {{ $message }}
     </div>
