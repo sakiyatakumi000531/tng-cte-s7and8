@@ -37,7 +37,7 @@ class UpdateProductService
             unset($data['img']);
         }
 
-        // バリデーション済みのデータで更新
+        // 3. バリデーション済みのデータで更新
         $product->update($data);
 
         return $product;
