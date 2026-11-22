@@ -49,7 +49,7 @@
             @foreach($products as $product)
                 <tr>
                     <td>{{ $product->id }}.</td> <!-- ID -->
-                    <td>商品画像</td> <!-- 商品画像 -->
+                    <td><img src = "{{ Storage::disk('public')->url($product->img_path) }}" alt = "{{ $product->product_name }}"></td> <!-- 商品画像 -->
                     <td>{{ $product->product_name }}</td> <!-- 商品名 -->
                     <td>￥{{ $product->price }}</td> <!-- 価格 -->
                     <td>{{ $product->stock }}</td> <!-- 在庫数 -->
