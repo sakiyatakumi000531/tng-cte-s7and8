@@ -80,6 +80,16 @@
 
     <!-- 商品画像 -->
     <label for = "img">商品画像</label>
+
+    {{-- 現在の画像をプレビュー --}}
+    <div>
+        @if (!empty($product->img_path))
+            <img src = "{{ Storage::disk('public')->url($product->img_path) }}" alt = "{{ $product->product_name }}">
+        @else
+            <img src = "{{ asset('images/no_image_logo.png') }}" alt = "NO IMAGE">
+        @endif
+    </div>
+
     <input type = "file" name = "img" id = "img" accept = "image/*">
 
     @error('img')
