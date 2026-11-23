@@ -49,7 +49,14 @@
             @foreach($products as $product)
                 <tr>
                     <td>{{ $product->id }}.</td> <!-- ID -->
-                    <td><img src = "{{ Storage::disk('public')->url($product->img_path) }}" alt = "{{ $product->product_name }}"></td> <!-- 商品画像 -->
+                    <td>
+                        @if ($product->img_path)
+                            <img src = "{{ Storage::disk('public')->url($product->img_path) }}" alt = "{{ $product->product_name }}">
+                        @else
+                            {{-- 画像がない場合の代替画像 --}}
+                            <img src = "{{ asset('images/no_image_square.jpg') }}" alt = "NO IMAGE">
+                        @endif
+                    </td> <!-- 商品画像 -->
                     <td>{{ $product->product_name }}</td> <!-- 商品名 -->
                     <td>￥{{ $product->price }}</td> <!-- 価格 -->
                     <td>{{ $product->stock }}</td> <!-- 在庫数 -->
