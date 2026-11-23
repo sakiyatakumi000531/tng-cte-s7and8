@@ -16,7 +16,7 @@
                         <img src = "{{ Storage::disk('public')->url($product->img_path) }}" alt = "{{ $product->product_name }}">
                     @else
                         {{-- 画像がない場合の代替画像 --}}
-                        <img src = "{{ asset('images/no_image_square.jpg') }}" alt = "NO IMAGE">
+                        <img src = "{{ asset('images/no_image_logo.png') }}" alt = "NO IMAGE">
                     @endif
                 </td>
             </tr>
