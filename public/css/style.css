@@ -38,6 +38,12 @@ th, td {
     text-align: left;
 }
 
+td img {
+  max-width: 100%;      /* 親（td）の幅を超えないように縮小する */
+  height: auto;         /* 縦横比（アスペクト比）を維持する */
+  display: block;       /* 画像下の謎の余白を消す */
+}
+
 .table-striped th,
 .table-striped td {
     border-bottom: solid 1px #000000;
