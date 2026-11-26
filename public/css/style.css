@@ -83,6 +83,12 @@ select {
     padding: 20px;
 }
 
+.required::after { /* 必須入力 */
+    content: "*";
+    color: #ef4444;
+    margin-left: 0.25em;
+}
+
 
 /* ボタン */
 .btn {
