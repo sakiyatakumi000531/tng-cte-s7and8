@@ -75,7 +75,7 @@ class UpdateRequest extends FormRequest
             'comment'      => ['nullable', 'string', 'max:2000'],
 
             // 任意(Nullable) / 画像ファイル / MIMEタイプを制限 / ファイルサイズを指定したKB以下に制限(2,048KB = 2MB)
-            'img_path'     => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'img'          => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ];
     }
 }
