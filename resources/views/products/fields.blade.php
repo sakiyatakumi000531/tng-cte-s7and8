@@ -16,7 +16,7 @@
 <div class = "form-container"> <!-- FlexBoxで子要素のレイアウトを変更させるためのdiv -->
 
     <!-- 商品名 -->
-    <label for = "product_name">商品名</label>
+    <label for = "product_name" class = "required">商品名</label>
     <input type = "text" name = "product_name" id = "product_name" value = "{{ old('product_name', $product->product_name ?? '') }}">
 
     @error('product_name')
@@ -27,7 +27,7 @@
 
 
     <!-- メーカー名 -->
-    <label for = "company_id">メーカー名</label>
+    <label for = "company_id" class = "required">メーカー名</label>
     <select name = "company_id" id = "company_id">
             <option value = "">選択してください</option>
         @foreach($companies as $company)
@@ -46,7 +46,7 @@
 
 
     <!-- 価格 -->
-    <label for = "price">価格</label>
+    <label for = "price" class = "required">価格</label>
     <input type = "number" name = "price" id = "price" value = "{{ old('price', $product->price ?? '') }}">
 
     @error('price')
@@ -57,7 +57,7 @@
 
 
     <!-- 在庫数 -->
-    <label for = "stock">在庫数</label>
+    <label for = "stock" class = "required">在庫数</label>
     <input type = "number" name = "stock" id = "stock" value = "{{ old('stock', $product->stock ?? '') }}">
 
     @error('stock')
